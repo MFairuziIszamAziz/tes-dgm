@@ -1,9 +1,9 @@
 1. D. i = 5 and j = 6
-2. A. After line 5
-3. B. Elephant e = new Alpha1();
+2. C. After the start() method completes
+3. D. new Alpha1().get("veggie).soundOff();
 4. B. Class B’s constructor has no arguments
-   C. Class B’s constructor includes a call to this().
-5. A. x = 1
+   D. Class B’s constructor includes a call to super()
+5. C. Compilation fails
 6. Method adalah fungsi yang terdapat di dalam sebuah kelas yang menentukan aksi atau perilaku yang dapat dilakukan oleh objek dari kelas tersebut.
    Atribut adalah variabel dalam sebuah kelas yang digunakan untuk menyimpan data atau properti yang dimiliki oleh objek dari kelas tersebut.
 7. Enkapsulasi merupakan sebuah konsep yang digunakan untuk menyembunyikan detail implementasi suatu kelas dan membatasi akses ke data atau metode di dalamnya, enkapsulasi sendiri biasanya diterapkan dengan modifier akses seperti private, protected, dan public.
