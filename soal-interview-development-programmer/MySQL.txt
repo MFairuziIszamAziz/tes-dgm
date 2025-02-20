@@ -1,0 +1,62 @@
+1. Right Join : Mengambil semua data dari tabel yang terletak di sebelah kanan dan hanya data yang cocok dari tabel yang terletak di sebelah kiri.
+   Left Join  : Mengambil semua data dari tabel yang terletak di sebelah kiri dan hanya data yang cocok dari tabel yang terletak di sebelah kanan.
+   Inner Join : Mengambil data yang hanya memiliko kecocokan antara dua tabel berdasarkan kondisi.
+   Outer Join : Mengambil semua data dari kedua tabel, apabila tidak memiliki kecocokan maka tabel yang tidak cocok akan berisi null.
+   Contoh Query (Menampilkan daftar janji temu antara pasien dan dokter)
+   Right Join : 
+   SELECT 
+      doctors.doctor_id, 
+      doctors.name AS doctor_name, 
+      doctors.specialty, 
+      appointments.appointment_date, 
+      patients.name AS patient_name
+   FROM doctors
+   RIGHT JOIN appointments ON doctors.doctor_id = appointments.doctor_id
+   RIGHT JOIN patients ON appointments.patient_id = patients.patient_id;
+Query di atas menghubungkan tabel appointments dengan patiens dan doctors untuk menampilkan daftar dokter termasuk yang belum memiliki janji temu.
+
+   Left Join : 
+   SELECT 
+      patients.patient_id, 
+      patients.name AS patient_name, 
+      appointments.appointment_date, 
+      doctors.name AS doctor_name
+   FROM patients
+   LEFT JOIN appointments ON patients.patient_id = appointments.patient_id
+   LEFT JOIN doctors ON appointments.doctor_id = doctors.doctor_id;
+Query di atas menghubungkan tabel appointments dengan patiens dan doctors untuk menampilkan daftar pasien termasuk yang belum memiliki janji temu.
+
+   Inner Join : 
+   SELECT 
+      appointments.appointment_id, 
+      patients.name AS patient_name, 
+      doctors.name AS doctor_name, 
+      doctors.specialty, 
+      appointments.appointment_date
+   FROM appointments
+   INNER JOIN patients ON appointments.patient_id = patients.patient_id
+   INNER JOIN doctors ON appointments.doctor_id = doctors.doctor_id;
+Query di atas menghubungkan tabel appointments dengan patiens dan doctors untuk menampilkan daftar dokter dan pasien yang sudah memiliki janji temu.
+   
+   Outer Join : 
+   SELECT 
+      patients.name AS patient_name, 
+      doctors.name AS doctor_name, 
+      appointments.appointment_date
+   FROM patients
+   LEFT JOIN appointments ON patients.patient_id = appointments.patient_id
+   LEFT JOIN doctors ON appointments.doctor_id = doctors.doctor_id
+
+   UNION
+
+   SELECT 
+      patients.name AS patient_name, 
+      doctors.name AS doctor_name, 
+      appointments.appointment_date
+   FROM doctors
+   RIGHT JOIN appointments ON doctors.doctor_id = appointments.doctor_id
+   RIGHT JOIN patients ON appointments.patient_id = patients.patient_id;
+Query di atas menghubungkan tabel appointments dengan patiens dan doctors untuk menampilkan semua pasien dan dokter termasuk yang belum memiliki janji temu.
+
+2. Query untuk menampilkan data janji temu pada tanggal 21 Februari 2025.
+   SELECT * FROM appointments WHERE appointment_date = '2025-02-21';
